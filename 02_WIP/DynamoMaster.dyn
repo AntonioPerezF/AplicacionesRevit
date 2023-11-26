@@ -1,0 +1,429 @@
+{
+  "Uuid": "af9c025e-1bf9-411e-bcfc-55f30f589e56",
+  "IsCustomNode": false,
+  "Description": "",
+  "Name": "DynamoMaster",
+  "ElementResolver": {
+    "ResolutionMap": {}
+  },
+  "Inputs": [],
+  "Outputs": [],
+  "Nodes": [
+    {
+      "ConcreteType": "PythonNodeModels.PythonStringNode, PythonNodeModels",
+      "Engine": "CPython3",
+      "EngineName": "CPython3",
+      "VariableInputPorts": true,
+      "NodeType": "ExtensionNode",
+      "Id": "29788d54992149a2b1a7e8995aad0285",
+      "Inputs": [
+        {
+          "Id": "f116963738e846158c5b2633348e2a6e",
+          "Name": "script",
+          "Description": "Secuencia de comandos de Python que ejecutar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "59283785c7fe4fdbb28dca6051413e42",
+          "Name": "IN[0]",
+          "Description": "Input #0",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "c7aec55cda1b4f069ec6a7634c1d1c43",
+          "Name": "IN[1]",
+          "Description": "Input #1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        },
+        {
+          "Id": "e196179471314e0ea52962b6db994d27",
+          "Name": "IN[2]",
+          "Description": "Input #2",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "210a8e88abc4435d99a1b11c3f02b696",
+          "Name": "OUT",
+          "Description": "Resultado de la secuencia de comandos de Python",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Ejecuta una secuencia de comandos de Python a partir de una cadena."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.Filename, CoreNodeModels",
+      "HintPath": "C:\\Users\\APF5230\\Documents\\Dev_ActivoDigital\\02_WIP\\MyfirsWindows.py",
+      "InputValue": "..\\02_WIP\\MyfirsWindows.py",
+      "NodeType": "ExtensionNode",
+      "Id": "59a01377abcd444b8bb9cb7b4760c0c7",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "472761fff52d402ea479c9cf0981dff3",
+          "Name": "",
+          "Description": "Ruta de archivo",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Permite seleccionar un archivo del sistema para obtener su ruta de archivo."
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.FileObject, CoreNodeModels",
+      "NodeType": "ExtensionNode",
+      "Id": "6397a9dc0fb949ff9c3bfd3c6b1b781e",
+      "Inputs": [
+        {
+          "Id": "11fbc3e853414e5f88f197d1a06fc7c1",
+          "Name": "path",
+          "Description": "Ruta al archivo como cadena.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "6a67c8edc5f74c75a31f6e09d870e15e",
+          "Name": "file",
+          "Description": "Objeto de archivo",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Crea un objeto de archivo a partir de una ruta"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.ZeroTouch.DSFunction, DynamoCore",
+      "NodeType": "FunctionNode",
+      "FunctionSignature": "DSCore.IO.FileSystem.ReadText@var",
+      "Id": "4a41a0cab69a4149b975bcad53aa8b04",
+      "Inputs": [
+        {
+          "Id": "ab15e1a9f8c1400980eb5ed756a6c5c6",
+          "Name": "file",
+          "Description": "Objeto de archivo desde el que se leerá texto\n\nvar",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "cc98140eaeca4f38899a4a362053c04e",
+          "Name": "string",
+          "Description": "Contenido del archivo de texto.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Auto",
+      "Description": "Lee un archivo de texto y devuelve el contenido como una cadena.\n\nFileSystem.ReadText (file: var): string"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.Categories, DSRevitNodesUI",
+      "SelectedIndex": 410,
+      "SelectedString": "OST_Rooms",
+      "NodeType": "ExtensionNode",
+      "Id": "e0d50d7b44cc4df1ad27c6b65bcf4ec3",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "ea1be4165353477a9d3aff4ed26cee39",
+          "Name": "Category",
+          "Description": "La categoría seleccionada",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Todas las categorías integradas"
+    },
+    {
+      "ConcreteType": "DSRevitNodesUI.ElementsOfCategory, DSRevitNodesUI",
+      "NodeType": "ExtensionNode",
+      "Id": "f394be5253d7449c9c6d14bde17f9f95",
+      "Inputs": [
+        {
+          "Id": "0b45b19677ab47c09ae8848712a737ca",
+          "Name": "Category",
+          "Description": "La categoría",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Outputs": [
+        {
+          "Id": "5f494a2764bd48169ef04ffb8013cbbf",
+          "Name": "Elements",
+          "Description": "Una clase de elemento.",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Obtiene todos los elementos de la categoría especificada en el modelo"
+    },
+    {
+      "ConcreteType": "Dynamo.Graph.Nodes.CodeBlockNodeModel, DynamoCore",
+      "NodeType": "CodeBlockNode",
+      "Code": "[\n\"Nivel\",\n\"Comentarios\",\n\"Acabado de la base\",\n\"Acabado del techo\",\n\"Acabado de muro\",\n\"Acabado del suelo\"\n];",
+      "Id": "b71efdbe883a4ddeb16782c06a51e3c0",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "4ec8d3e127854a3bb77c9ad41b204461",
+          "Name": "",
+          "Description": "Valor de la expresión en la línea 1",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Permite creación directa de código de DesignScript"
+    },
+    {
+      "ConcreteType": "CoreNodeModels.Input.StringInput, CoreNodeModels",
+      "NodeType": "StringInputNode",
+      "InputValue": "Mi_vista3D",
+      "Id": "7ce117c3066345ef8a780785fc612094",
+      "Inputs": [],
+      "Outputs": [
+        {
+          "Id": "b22153c531a94c52afe1dc1f34721809",
+          "Name": "",
+          "Description": "String",
+          "UsingDefaultValue": false,
+          "Level": 2,
+          "UseLevels": false,
+          "KeepListStructure": false
+        }
+      ],
+      "Replication": "Disabled",
+      "Description": "Crea una cadena"
+    }
+  ],
+  "Connectors": [
+    {
+      "Start": "472761fff52d402ea479c9cf0981dff3",
+      "End": "11fbc3e853414e5f88f197d1a06fc7c1",
+      "Id": "3ecfbfe4e848406a84b5d1c47bb3f0d3",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "6a67c8edc5f74c75a31f6e09d870e15e",
+      "End": "ab15e1a9f8c1400980eb5ed756a6c5c6",
+      "Id": "31de7939ca834d4a9286b5c63621dd1b",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "cc98140eaeca4f38899a4a362053c04e",
+      "End": "f116963738e846158c5b2633348e2a6e",
+      "Id": "04aac61eaa334d0796f87cbe952be0f1",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "ea1be4165353477a9d3aff4ed26cee39",
+      "End": "0b45b19677ab47c09ae8848712a737ca",
+      "Id": "5475dc51c5cf406dad33341116fee555",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "5f494a2764bd48169ef04ffb8013cbbf",
+      "End": "59283785c7fe4fdbb28dca6051413e42",
+      "Id": "3d67a65b347a4c1e83b3cfa936c677c4",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "4ec8d3e127854a3bb77c9ad41b204461",
+      "End": "c7aec55cda1b4f069ec6a7634c1d1c43",
+      "Id": "7d039ec74ac746c99d5b075dd96e3e24",
+      "IsHidden": "False"
+    },
+    {
+      "Start": "b22153c531a94c52afe1dc1f34721809",
+      "End": "e196179471314e0ea52962b6db994d27",
+      "Id": "c22e7729b10d44418f6e9c5f7cdc44b4",
+      "IsHidden": "False"
+    }
+  ],
+  "Dependencies": [],
+  "NodeLibraryDependencies": [
+    {
+      "Name": "MyfirsWindows.py",
+      "ReferenceType": "External",
+      "Nodes": [
+        "59a01377abcd444b8bb9cb7b4760c0c7"
+      ]
+    }
+  ],
+  "Thumbnail": "",
+  "GraphDocumentationURL": null,
+  "ExtensionWorkspaceData": [
+    {
+      "ExtensionGuid": "28992e1d-abb9-417f-8b1b-05e053bee670",
+      "Name": "Propiedades",
+      "Version": "2.16",
+      "Data": {}
+    },
+    {
+      "ExtensionGuid": "DFBD9CC0-DB40-457A-939E-8C8555555A9D",
+      "Name": "Generative Design",
+      "Version": "3.0",
+      "Data": {}
+    }
+  ],
+  "Author": "",
+  "Linting": {
+    "activeLinter": "Ninguno",
+    "activeLinterId": "7b75fb44-43fd-4631-a878-29f4d5d8399a",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "Bindings": [],
+  "View": {
+    "Dynamo": {
+      "ScaleFactor": 1.0,
+      "HasRunWithoutCrash": true,
+      "IsVisibleInDynamoLibrary": true,
+      "Version": "2.16.2.5624",
+      "RunType": "Manual",
+      "RunPeriod": "1000"
+    },
+    "Camera": {
+      "Name": "Vista preliminar en segundo plano",
+      "EyeX": -17.0,
+      "EyeY": 24.0,
+      "EyeZ": 50.0,
+      "LookX": 12.0,
+      "LookY": -13.0,
+      "LookZ": -58.0,
+      "UpX": 0.0,
+      "UpY": 1.0,
+      "UpZ": 0.0
+    },
+    "ConnectorPins": [],
+    "NodeViews": [
+      {
+        "Name": "Python Script From String",
+        "ShowGeometry": true,
+        "Id": "29788d54992149a2b1a7e8995aad0285",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": 59.461171407716563,
+        "Y": 65.5065034758575
+      },
+      {
+        "Name": "File Path",
+        "ShowGeometry": true,
+        "Id": "59a01377abcd444b8bb9cb7b4760c0c7",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -845.27477726607185,
+        "Y": 64.792687264669382
+      },
+      {
+        "Name": "File From Path",
+        "ShowGeometry": true,
+        "Id": "6397a9dc0fb949ff9c3bfd3c6b1b781e",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -521.08115211193615,
+        "Y": 67.783413406175612
+      },
+      {
+        "Name": "FileSystem.ReadText",
+        "ShowGeometry": true,
+        "Id": "4a41a0cab69a4149b975bcad53aa8b04",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -281.54101342969147,
+        "Y": 66.131671857859772
+      },
+      {
+        "Name": "Categories",
+        "ShowGeometry": true,
+        "Id": "e0d50d7b44cc4df1ad27c6b65bcf4ec3",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -812.7031287166368,
+        "Y": 210.99818555675205
+      },
+      {
+        "Name": "All Elements of Category",
+        "ShowGeometry": true,
+        "Id": "f394be5253d7449c9c6d14bde17f9f95",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -520.33497800791019,
+        "Y": 211.83025963584174
+      },
+      {
+        "Name": "Code Block",
+        "ShowGeometry": true,
+        "Id": "b71efdbe883a4ddeb16782c06a51e3c0",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -510.87653292288394,
+        "Y": 353.6853184521346
+      },
+      {
+        "Name": "Nombre de la vista 3D",
+        "ShowGeometry": true,
+        "Id": "7ce117c3066345ef8a780785fc612094",
+        "IsSetAsInput": false,
+        "IsSetAsOutput": false,
+        "Excluded": false,
+        "X": -509.89562447099979,
+        "Y": 600.194698084001
+      }
+    ],
+    "Annotations": [],
+    "X": 1104.1970010822529,
+    "Y": 122.26382708913223,
+    "Zoom": 0.84761857199822666
+  }
+}

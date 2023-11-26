@@ -1,0 +1,48 @@
+
+#* importar common language runtime 
+import clr   
+
+#* clr.AddReference carga e importa .net assembly(dll) como un modulo de python
+clr.AddReference("RevitAPI") #? Cargar RevitAPI.dll
+clr.AddReference("RevitServices") #? Cargar RevitServices.dll
+
+from Autodesk.Revit.DB import FilteredElementCollector, RevitLinkInstance           #? Importar las clases filtered element collector and revit link instance
+from RevitServices.Persistence import DocumentManager                               #? Importa document manager
+
+doc = DocumentManager.Instance.CurrentDBDocument                                    #? Identificador del documento actual de Revit
+
+#* Seleccionamos todos los links del documento activo
+links = FilteredElementCollector(doc).OfClass(RevitLinkInstance).ToElements()
+
+#* Creaamos lista vacia por mostrar en salida
+load = []
+
+#* Input externo que será true o false
+if IN[0]:    
+	
+    #* Abrimos bucle para navegar por cada uno de los links seleccionados
+	for link in links:
+		
+        #* Obtenemos tipo de documento
+		linkType  = doc.GetElement(link.GetTypeId())
+		
+        #* Obtenemos la ruta donde se encuentra el archivo vinculado guardado
+		filepath = linkType.GetExternalFileReference().GetAbsolutePath()
+		try:
+			#* intenta recargar desde la ruta guardada
+			linkType.LoadFrom(filepath,None)
+
+            #* Agregamos link a la lista de salida
+			load.append(linkType)
+
+		#* Si no puede recargalor desde esa ruta
+		except:
+			#* Añade a la lista de salida que el archivo vinculado no se encuentra en la ruta guardada
+			load.append(link.Name.split(" : ")[0]+" <Modelo no encontrado>")
+			pass
+	OUT = load
+
+#* Si el input es false o none
+else:
+	#* Devuelve un mensaje indicando que pongas true en el input
+	OUT="Set true to run!"
